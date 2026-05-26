@@ -325,7 +325,12 @@ def run_comparison(file_bytes: bytes, original_name: str) -> tuple:
         input_path.write_bytes(file_bytes)
 
         shutil.copy(COMPARISON_SCRIPT, Path(tmpdir) / "barc_nct_comparison.py")
-
+        old_cwd = os.getcwd()
+        os.chdir(tmpdir)
+        try:
+             run_comparison()
+        finally:
+             os.chdir(old_cwd)
         run_comparison(file_bytes, original_name)
 
         output_path = Path(tmpdir) / "barc_nct_comparison.xlsx"
