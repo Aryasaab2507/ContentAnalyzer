@@ -20,7 +20,7 @@ import zipfile
 from datetime import datetime
 from functools import wraps
 from pathlib import Path
-from barc_nct_comparison import run_comparison
+from barc_nct_comparison import run_comparison as engine_run_comparison
 import pandas as pd
 from bson.decimal128 import Decimal128
 from bson.binary import Binary
@@ -324,14 +324,11 @@ def run_comparison(file_bytes: bytes, original_name: str) -> tuple:
         input_path = Path(tmpdir) / "brand_comparison_template.xlsx"
         input_path.write_bytes(file_bytes)
 
-        shutil.copy(COMPARISON_SCRIPT, Path(tmpdir) / "barc_nct_comparison.py")
-        old_cwd = os.getcwd()
-        os.chdir(tmpdir)
-        try:
-             run_comparison()
-        finally:
-             os.chdir(old_cwd)
-        run_comparison(file_bytes, original_name)
+        temp_script = Path(tmpdir) / "barc_nct_comparison.py"
+        shutil.copy(COMPARISON_SCRIPT, temp_script)
+        child_env = os.environ.copy()
+        child_env["PYTHONIOENCODING"] = "utf-8"
+        subprocess.run([sys.executable, str(temp_script)], cwd=tmpdir, env=child_env, check=True)
 
         output_path = Path(tmpdir) / "barc_nct_comparison.xlsx"
         if not output_path.exists():
