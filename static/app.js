@@ -151,11 +151,11 @@ function renderPieChart(d, source, dataType) {
 
   // ── Colour palettes ────────────────────────────────────────────────────────
   // Palette 1 — Classic Bold  (BARC XML)
-  // Commercial → #2196F3, Promo → #FF9800, PromoSponsor → #00BCD4, Program → #9C27B0
-  const palette1 = ['#2196F3', '#FF9800', '#00BCD4', '#9C27B0'];
-  // Palette 2 — Neon Dark     (TABSONS)
-  // Commercial → #00E676, Promo → #FF4081, PromoSponsor → #FFD740, Program → #536DFE
-  const palette2 = ['#00E676', '#FF4081', '#FFD740', '#536DFE'];
+  // Commercial → #3B82F6, Promo → #F59E0B, PromoSponsor → #14B8A6, Program → #8B5CF6
+  const palette1 = ['#3B82F6', '#F59E0B', '#14B8A6', '#8B5CF6'];
+  // Palette 2 — Soft Modern   (TABSONS)
+  // Commercial → #10B981, Promo → #F472B6, PromoSponsor → #FBBF24, Program → #6366F1
+  const palette2 = ['#10B981', '#F472B6', '#FBBF24', '#6366F1'];
 
   // 4 segments (including Program)
   const makeLabels = () => ['Commercial', 'Promo', 'PromoSponsor', 'Program'];
@@ -177,7 +177,7 @@ function renderPieChart(d, source, dataType) {
       plugins: {
         legend: {
           position: 'bottom',
-          labels: { color: '#94a3b8', padding: 14, font: { family: 'DM Sans', size: 11 } }
+          labels: { color: '#475569', padding: 14, font: { family: 'DM Sans', size: 11 } }
         }
       }
     }
@@ -366,10 +366,10 @@ function renderCommercialTables(data) {
   let html = `
   <!-- Legend -->
   <div class="comm-legend">
-    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#1e6fb5"></div><span style="color:#60a5fa">BARC columns</span></div>
-    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#166534"></div><span style="color:#34d399">TABSONS columns</span></div>
-    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#4c1d95"></div><span style="color:#a78bfa">Shared / Remarks</span></div>
-    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#78350f"></div><span style="color:#f59e0b">Action</span></div>
+    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#3B82F6"></div><span style="color:#2563EB">BARC columns</span></div>
+    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#10B981"></div><span style="color:#047857">TABSONS columns</span></div>
+    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#8B5CF6"></div><span style="color:#7C3AED">Shared / Remarks</span></div>
+    <div class="comm-legend-item"><div class="comm-legend-dot" style="background:#F59E0B"></div><span style="color:#B45309">Action</span></div>
   </div>
 
   <!-- MATCHED section -->
@@ -484,7 +484,7 @@ async function mergeBrand(brandName) {
 function onCompareFileSelect(e) {
   const file = e.target.files[0];
   if (!file) return;
-  document.getElementById('compare-file-info').innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--surface2);border-radius:7px;margin-top:10px"><span style="color:#93c5fd;font-family:monospace;font-size:12px">${file.name}</span><span style="color:var(--muted);font-size:11px">${fmtSize(file.size)}</span></div>`;
+  document.getElementById('compare-file-info').innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--surface2);border-radius:12px;margin-top:10px;border:1px solid var(--border)"><span style="color:#2563EB;font-family:monospace;font-size:12px">${file.name}</span><span style="color:var(--muted);font-size:11px">${fmtSize(file.size)}</span></div>`;
   document.getElementById('compare-run-btn').style.display = 'inline-flex';
 }
 
@@ -542,7 +542,7 @@ async function downloadReport(type) {
 function onUploadFileSelect(e) {
   const file = e.target.files[0];
   if (!file) return;
-  document.getElementById('upload-file-info').innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--surface2);border-radius:7px;margin-top:10px"><span style="color:#93c5fd;font-family:monospace;font-size:12px">${file.name}</span><span style="color:var(--muted);font-size:11px">${fmtSize(file.size)}</span></div>`;
+  document.getElementById('upload-file-info').innerHTML = `<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--surface2);border-radius:12px;margin-top:10px;border:1px solid var(--border)"><span style="color:#2563EB;font-family:monospace;font-size:12px">${file.name}</span><span style="color:var(--muted);font-size:11px">${fmtSize(file.size)}</span></div>`;
   document.getElementById('upload-run-btn').style.display = 'inline-flex';
 }
 
