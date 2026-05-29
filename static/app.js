@@ -154,8 +154,8 @@ function renderPieChart(d, source, dataType) {
   // Commercial → #3B82F6, Promo → #F59E0B, PromoSponsor → #14B8A6, Program → #8B5CF6
   const palette1 = ['#3B82F6', '#F59E0B', '#14B8A6', '#8B5CF6'];
   // Palette 2 — Soft Modern   (TABSONS)
-  // Commercial → #10B981, Promo → #F472B6, PromoSponsor → #FBBF24, Program → #6366F1
-  const palette2 = ['#10B981', '#F472B6', '#FBBF24', '#6366F1'];
+  // Commercial → #3B82F6, Promo → #F59E0B, PromoSponsor → #14B8A6, Program → #8B5CF6
+  const palette2 = ['#3B82F6', '#F59E0B', '#14B8A6', '#8B5CF6'];
 
   // 4 segments (including Program)
   const makeLabels = () => ['Commercial', 'Promo', 'PromoSponsor', 'Program'];
