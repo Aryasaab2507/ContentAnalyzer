@@ -132,11 +132,11 @@ function renderKPIs(d, source, dataType) {
       <div class="kpi-card kpi-program"><div class="kpi-label">Program</div><div class="kpi-value">${totalProgram}</div><div class="kpi-sub">TABSONS: ${d.tabsons_program !== undefined ? d.tabsons_program : '—'} &nbsp;|&nbsp; BARC: ${d.barc_program !== undefined ? d.barc_program : '—'}</div></div>`;
   } else {
     container.innerHTML = `
-      <div class="kpi-card"><div class="kpi-label">Total Line Item</div><div class="kpi-value">${d.total_line_item}</div><div class="kpi-sub">${dataType}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Commercial</div><div class="kpi-value">${d.commercial}</div><div class="kpi-sub">${dataType}</div></div>
-      <div class="kpi-card"><div class="kpi-label">Promo</div><div class="kpi-value">${d.promo}</div><div class="kpi-sub">${dataType}</div></div>
-      <div class="kpi-card"><div class="kpi-label">PromoSponsor</div><div class="kpi-value">${d.promo_sponsor}</div><div class="kpi-sub">${dataType}</div></div>
-      <div class="kpi-card kpi-program"><div class="kpi-label">Program</div><div class="kpi-value">${d.program !== undefined ? d.program : '—'}</div><div class="kpi-sub">${dataType}</div></div>`;
+      <div class="kpi-card"><div class="kpi-label">Total Duration</div><div class="kpi-value">${d.total_line_item}</div><div class="kpi-sub">${dataType}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Commercial Duration</div><div class="kpi-value">${d.commercial}</div><div class="kpi-sub">${dataType}</div></div>
+      <div class="kpi-card"><div class="kpi-label">Promo Duration</div><div class="kpi-value">${d.promo}</div><div class="kpi-sub">${dataType}</div></div>
+      <div class="kpi-card"><div class="kpi-label">PromoSponsor Duration</div><div class="kpi-value">${d.promo_sponsor}</div><div class="kpi-sub">${dataType}</div></div>
+      <div class="kpi-card kpi-program"><div class="kpi-label">Program Duration</div><div class="kpi-value">${d.program !== undefined ? d.program : '—'}</div><div class="kpi-sub">${dataType}</div></div>`;
   }
 }
 
